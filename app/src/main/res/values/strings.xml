@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">HealthConsultancyServicesAndroidApp</string>
+    <string name="app_name">HealthConsultancyServices</string>
+      <string-array name="usertype">
+        <item></item>
+        <item>Doctor</item>
+        <item>Patient</item>
+    </string-array>
+    <string name="Checkbox">RememberMe</string>
 </resources>
+

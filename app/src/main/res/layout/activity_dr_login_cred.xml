@@ -7,10 +7,11 @@
     android:orientation="vertical"
     android:background="@drawable/login"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".DrLoginCred">
+
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="397dp"
         android:layout_height="match_parent"
         android:background="#3fff"
         android:gravity="center"
@@ -22,57 +23,56 @@
             android:layout_height="wrap_content"
             android:background="@drawable/circle"
             android:gravity="center"
-            android:text="Login"
+            android:text="Doctor Login Credentials"
             android:textColor="#FFFBF8"
             android:textSize="17dp" />
 
         <EditText
-            android:id="@+id/txtUser"
+            android:id="@+id/email"
             android:layout_width="250dp"
             android:layout_height="44dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/btn"
             android:elevation="5dp"
-            android:hint="Username"
+            android:hint="Email-id"
             android:inputType="textPersonName"
             android:paddingLeft="15dp"
-            android:textColorHint="#000000" />
+            android:textColorHint="#FFFBF8" />
 
         <EditText
-            android:id="@+id/txtPass"
+            android:id="@+id/newpassword"
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/btn"
             android:elevation="5dp"
-            android:hint="Password"
-            android:inputType="textPassword"
+            android:hint="New Password"
+            android:inputType="numberPassword"
             android:paddingLeft="15dp"
-            android:textColorHint="#000000" />
-
-        <Spinner
-            android:id="@+id/spinner"
+            android:textColorHint="#FFFBF8" />
+        <EditText
+            android:id="@+id/confirmpass"
             android:layout_width="250dp"
             android:layout_height="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/btn"
             android:elevation="5dp"
-            android:hint="Role"
+            android:hint="Confirm Password"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            android:textColorHint="#FFFBF8" />
+        <TextView
+            android:id="@+id/role"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn"
+            android:elevation="5dp"
+            android:hint="Doctor"
+            android:inputType="text"
             android:paddingLeft="15dp"
             android:textColorHint="#FFFBF8" />
 
-
-        <CheckBox
-            android:id="@+id/rememberMe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
-            android:buttonTint="#FFFBF8"
-            android:hint="#FFFBF8"
-            android:text="Keep me signed in"
-            android:textColor="#FFFBF8" />
 
         <Button
             android:id="@+id/btn"
@@ -81,32 +81,13 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/btncolor"
             android:elevation="5dp"
-            android:text="Sign in"
+            android:text="Register"
             android:textAllCaps="false"
             android:textColor="#FFFBF8" />
 
-        <TextView
-            android:id="@+id/link"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:autoLink="all"
-            android:clickable="true"
-            android:text="Forget Password?"
-            android:textColor="#8fff" />
-
-        <TextView
-            android:id="@+id/link1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:autoLink="all"
-            android:clickable="true"
-            android:text="Not yet Register?Register Now"
-            android:textColor="#8fff" />
-
 
     </LinearLayout>
+
 
 
 </RelativeLayout>

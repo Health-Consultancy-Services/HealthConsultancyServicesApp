@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/doc2"
+    tools:context=".DoctorRegister"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:layout_width="397dp"
+            android:layout_height="match_parent"
+            android:background="#3fff"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle"
+                android:gravity="center"
+                android:text="Doctor's Registration"
+                android:textColor="#000000"
+                android:textSize="17dp" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="250dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn"
+                android:elevation="5dp"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000" />
+
+            <EditText
+                android:id="@+id/age"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn"
+                android:elevation="5dp"
+                android:hint="Age"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000" />
+            <EditText
+                android:id="@+id/phoneno"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn"
+                android:elevation="5dp"
+                android:hint="Phone-No"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000" />
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn"
+                android:elevation="5dp"
+                android:hint="Email-Id"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000" />
+            <EditText
+                android:id="@+id/department"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn"
+                android:elevation="5dp"
+                android:hint="Department"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000" />
+            <EditText
+                android:id="@+id/experience"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn"
+                android:elevation="5dp"
+                android:hint="Experience"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000" />
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn"
+                android:elevation="5dp"
+                android:hint="Address"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000" />
+            <EditText
+                android:id="@+id/qualification"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn"
+                android:elevation="5dp"
+                android:hint="Qualification"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000" />
+            <EditText
+                android:id="@+id/gender"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn"
+                android:elevation="5dp"
+                android:hint="Gender"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000" />
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/btn"
+                android:elevation="5dp"
+                android:text="inhold"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000" />
+
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btncolor"
+                android:elevation="5dp"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:textColor="#FFFBF8" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</ScrollView>
