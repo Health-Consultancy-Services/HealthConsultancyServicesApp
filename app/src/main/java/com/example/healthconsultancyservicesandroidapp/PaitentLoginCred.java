@@ -19,19 +19,69 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class PaitentLoginCred extends AppCompatActivity {
 
     Button btn;
+    EditText email;
+    EditText password;
+    EditText confirm;
+    TextView role;
     private  HealthConsultancyServicesApi healthConsultancyServicesApi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paitent_login_cred);
         btn = findViewById(R.id.btn);
+        email = (EditText) findViewById(R.id.email);
+        password = (EditText) findViewById(R.id.newpassword);
+        confirm =findViewById(R.id.confirmpass);
+        role = (TextView) findViewById(R.id.role);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.100:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(PaitentLoginCred.this,MainActivity.class);
+                User user= new User(email.getText().toString(),password.getText().toString(),"patient");
+                if (email.getText().toString().isEmpty()){
+                    email.setError("Email can't be empty");
+                }
+                else  if (password.getText().toString().isEmpty() ){
+                    password.setError("Password can't be empty");
+                }
+                else if (confirm.getText().toString().isEmpty()){
+                    password.setError("Password can't be empty");
+                }
+                else if (!confirm.getText().toString().equals(password.getText().toString())){
+                    confirm.setError("Password did't match empty");
+                }
+                else
+                    saveUser(user);
+            }
+            
+
+        });
+    }
+
+    private void saveUser(User user) {
+        Call<User> call = healthConsultancyServicesApi.saveUser(user);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if(!response.isSuccessful()){
+
+                }
+
+                Intent intent = new Intent(PaitentLoginCred.this,MainActivity.class);
                 startActivity(intent);
             }
 
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+
+                Intent intent = new Intent(PaitentLoginCred.this,MainActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }
