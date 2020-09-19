@@ -78,7 +78,7 @@
                 android:background="@drawable/btn"
                 android:elevation="5dp"
                 android:hint="Email-Id"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:paddingLeft="15dp"
                 android:textColorHint="#000000" />
 

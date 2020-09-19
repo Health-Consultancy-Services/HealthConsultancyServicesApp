@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,9 @@ public class PatientRegister extends AppCompatActivity {
     EditText email;
     EditText gender;
     Button btn;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String MobilePattern = "[0-9]{10}";
+    String alphabetPattern=  "[a-zA-Z ]+";
 private  HealthConsultancyServicesApi healthConsultancyServicesApi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,7 @@ private  HealthConsultancyServicesApi healthConsultancyServicesApi;
         btn = findViewById(R.id.btn);
 
         Retrofit retrofit = new Retrofit.Builder ()
-                .baseUrl ("http://192.168.1.101:8080/")
+                .baseUrl ("http://172.20.10.3:8080/")
                 .addConverterFactory (GsonConverterFactory.create ())
                 .build ();
         healthConsultancyServicesApi = retrofit.create (HealthConsultancyServicesApi.class);
@@ -44,14 +48,19 @@ private  HealthConsultancyServicesApi healthConsultancyServicesApi;
                 Patient patient = new Patient(patient_name.getText().toString(), age.getText().toString(), phoneno.getText().toString(), email.getText().toString(), gender.getText().toString());
                 if (patient_name.getText().toString().isEmpty()) {
                     patient_name.setError("Name can't be empty");
-                } else if (age.getText().toString().isEmpty()) {
+                }else if (!patient_name.getText().toString().trim().matches(alphabetPattern)){
+                    patient_name.setError("ENTER ONLY ALPHABETICAL CHARACTER");
+                }else if (age.getText().toString().isEmpty()) {
                     age.setError("age can't be empty");
                 } else if (phoneno.getText().toString().isEmpty()) {
                     phoneno.setError("Enter a valid number");
+                }else if (!phoneno.getText().toString().trim().matches(MobilePattern)){
+                    phoneno.setError("Invalid Phone Number");
                 } else if (email.getText().toString().isEmpty()) {
                     email.setError("Email can't be empty");
-
-                } else if (gender.getText().toString().isEmpty()) {
+                }else if (!email.getText().toString().trim().matches(emailPattern)){
+                    email.setError("Invalid email address");
+                }else if (gender.getText().toString().isEmpty()) {
                     gender.setError("Gender can't be empty");
 
                 } else
@@ -73,7 +82,7 @@ private  HealthConsultancyServicesApi healthConsultancyServicesApi;
 
             @Override
             public void onFailure(Call<Patient> call, Throwable t) {
-
+                Toast.makeText (getApplicationContext (), t.getMessage (), Toast.LENGTH_LONG).show ();
             }
         });
 

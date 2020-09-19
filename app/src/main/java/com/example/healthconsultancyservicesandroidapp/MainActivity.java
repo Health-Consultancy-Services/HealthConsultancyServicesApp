@@ -1,5 +1,6 @@
 package com.example.healthconsultancyservicesandroidapp;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,15 +14,22 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+
 public class MainActivity extends AppCompatActivity {
 
 
-    EditText _txtUser, _txtPass;
+    EditText _txtUser, _txtPass, _txtRole;
     Button _btn;
     CheckBox remember;
-    Spinner _spinner;
     TextView _link,_link1;
-
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    private HealthConsultancyServicesApi healthConsultancyServicesApi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         _txtPass = (EditText) findViewById(R.id.txtPass);
         _btn = (Button) findViewById(R.id.btn);
         remember =(CheckBox) findViewById(R.id.rememberMe);
-        _spinner = (Spinner) findViewById(R.id.spinner);
+        _txtRole = (EditText) findViewById(R.id.txtRole);
         _link =(TextView) findViewById(R.id.link);
         _link1 = findViewById(R.id.link1);
 
@@ -50,32 +58,62 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-        ArrayAdapter <CharSequence> adapter =ArrayAdapter.createFromResource(this, R.array.usertype,R.layout.support_simple_spinner_dropdown_item);
-        _spinner.setAdapter(adapter);
-
         _btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String item = _spinner.getSelectedItem().toString();
-                if (_txtUser.getText().toString().equals("DoctorDashboard")&& _txtPass.getText().toString().equals("DoctorDashboard")&& item.equals("DoctorDashboard")){
-                    Intent intent =new Intent(MainActivity.this, DoctorDashboard.class);
-                    startActivity(intent);
+                if (_txtUser.getText().toString().isEmpty()) {
+                    _txtUser.setError("Email can't be empty");
+                }else if (!_txtUser.getText().toString().trim().matches(emailPattern)) {
+                    _txtUser.setError("Invalid email address");
+                }else if (!_txtPass.getText().toString().isEmpty()){
+                        _txtPass.setError("password can't be empty");}
+                else if (!_txtRole.getText().toString().isEmpty()){
+                    _txtRole.setError("Role can't be empty");}
+                else
+                {
+                findByEmailAndPasswordAndRole();
+            }}
+        });
+
+    }
+
+    private void findByEmailAndPasswordAndRole() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://172.20.10.3:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
+        String email = _txtUser.getText ().toString ();
+        String password = _txtPass.getText ().toString ();
+        String role = _txtRole.getText ().toString ();
+
+        Call<User> call = healthConsultancyServicesApi.findByEmailAndPasswordAndRole(email,password,role);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                User user = response.body ();
+                String email = _txtUser.getText ().toString ();
+                String password = _txtPass.getText ().toString ();
+                String role = _txtRole.getText ().toString ();
+                if (user == null){
+                    Toast.makeText (getApplicationContext (), "Please Enter Valid Credentials :" +response.code (), Toast.LENGTH_LONG).show ();
                 }
-                else if (_txtUser.getText().toString().equals("DoctorDashboard")&& _txtPass.getText().toString().equals("DoctorDashboard")&& item.equals("PatientDashboard")){
+                else if(_txtRole.getText().toString().equals("patient")){
                     Intent intent =new Intent(MainActivity.this, PatientDashboard.class);
                     startActivity(intent);
                 }
-                else{
-                    Toast.makeText(getApplicationContext(),"Invalid Username or Password",Toast.LENGTH_LONG).show();
+                else if(_txtRole.getText().toString().equals("doctor")) {
+                    Intent intent = new Intent(MainActivity.this, DoctorDashboard.class);
+                    startActivity(intent);
+
                 }
+
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText (getApplicationContext (), t.getMessage (), Toast.LENGTH_LONG).show ();
             }
         });
-
-
-
-
-
     }
 }

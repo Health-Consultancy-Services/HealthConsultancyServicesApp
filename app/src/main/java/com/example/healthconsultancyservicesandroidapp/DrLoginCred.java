@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,7 @@ public class DrLoginCred extends AppCompatActivity {
     EditText password;
     EditText confirm;
     TextView role;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     Button btn;
 
@@ -36,7 +38,7 @@ public class DrLoginCred extends AppCompatActivity {
         confirm =findViewById(R.id.confirmpass);
         role = (TextView) findViewById(R.id.role);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.100:8080/")
+                .baseUrl("http://172.20.10.3:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
@@ -46,6 +48,9 @@ public class DrLoginCred extends AppCompatActivity {
                 User user= new User(email.getText().toString(),password.getText().toString(),"doctor");
                 if (email.getText().toString().isEmpty()){
                     email.setError("Email can't be empty");
+                }
+                else if (!email.getText().toString().trim().matches(emailPattern)){
+                    email.setError("Invalid email address");
                 }
                 else  if (password.getText().toString().isEmpty() ){
                     password.setError("Password can't be empty");
@@ -58,7 +63,6 @@ public class DrLoginCred extends AppCompatActivity {
                 }
                 else
                     saveUser(user);
-                
             }
         });
     }
@@ -74,7 +78,7 @@ public class DrLoginCred extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-
+                Toast.makeText (getApplicationContext (), t.getMessage (), Toast.LENGTH_LONG).show ();
             }
         });
     }

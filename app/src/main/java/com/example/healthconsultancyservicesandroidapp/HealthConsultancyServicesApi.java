@@ -14,4 +14,7 @@ public interface HealthConsultancyServicesApi {
 
     @POST("user")
     Call<User> saveUser(@Body User user);
+
+    @GET("login/{email}/{password}/{role}")
+    Call<User> findByEmailAndPasswordAndRole(@Path("email") String email,@Path("password") String password,@Path("role") String role);
 }

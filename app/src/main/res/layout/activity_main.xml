@@ -34,7 +34,7 @@
             android:background="@drawable/btn"
             android:elevation="5dp"
             android:hint="Username"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:paddingLeft="15dp"
             android:textColorHint="#000000" />
 
@@ -50,16 +50,19 @@
             android:paddingLeft="15dp"
             android:textColorHint="#000000" />
 
-        <Spinner
-            android:id="@+id/spinner"
+        <EditText
+            android:id="@+id/txtRole"
             android:layout_width="250dp"
             android:layout_height="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/btn"
             android:elevation="5dp"
             android:hint="Role"
+            android:inputType="text"
             android:paddingLeft="15dp"
-            android:textColorHint="#FFFBF8" />
+            android:textColorHint="#000000" />
+
+
 
 
         <CheckBox

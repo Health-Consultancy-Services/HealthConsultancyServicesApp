@@ -23,6 +23,7 @@ public class PaitentLoginCred extends AppCompatActivity {
     EditText password;
     EditText confirm;
     TextView role;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private  HealthConsultancyServicesApi healthConsultancyServicesApi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class PaitentLoginCred extends AppCompatActivity {
         confirm =findViewById(R.id.confirmpass);
         role = (TextView) findViewById(R.id.role);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.100:8080/")
+                .baseUrl("http://172.20.10.3:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
@@ -44,6 +45,9 @@ public class PaitentLoginCred extends AppCompatActivity {
                 User user= new User(email.getText().toString(),password.getText().toString(),"patient");
                 if (email.getText().toString().isEmpty()){
                     email.setError("Email can't be empty");
+                }
+                else if (!email.getText().toString().trim().matches(emailPattern)){
+                    email.setError("Invalid email address");
                 }
                 else  if (password.getText().toString().isEmpty() ){
                     password.setError("Password can't be empty");
@@ -67,10 +71,6 @@ public class PaitentLoginCred extends AppCompatActivity {
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                if(!response.isSuccessful()){
-
-                }
-
                 Intent intent = new Intent(PaitentLoginCred.this,MainActivity.class);
                 startActivity(intent);
             }
@@ -78,9 +78,7 @@ public class PaitentLoginCred extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-
-                Intent intent = new Intent(PaitentLoginCred.this,MainActivity.class);
-                startActivity(intent);
+                Toast.makeText (getApplicationContext (), t.getMessage (), Toast.LENGTH_LONG).show ();
             }
         });
     }
