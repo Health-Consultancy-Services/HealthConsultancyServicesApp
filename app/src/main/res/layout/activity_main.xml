@@ -34,7 +34,7 @@
             android:background="@drawable/btn"
             android:elevation="5dp"
             android:hint="Username"
-            android:inputType="textEmailAddress"
+            android:inputType="textPersonName"
             android:paddingLeft="15dp"
             android:textColorHint="#000000" />
 
@@ -50,32 +50,47 @@
             android:paddingLeft="15dp"
             android:textColorHint="#000000" />
 
-        <EditText
-            android:id="@+id/txtRole"
+        <TextView
+            android:id="@+id/usertype"
             android:layout_width="250dp"
             android:layout_height="40dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/btn"
-            android:elevation="5dp"
-            android:hint="Role"
-            android:inputType="text"
+            android:textSize="24dp"
             android:paddingLeft="15dp"
-            android:textColorHint="#000000" />
+            android:text="User Type"
+            android:gravity="center"
+            android:textColor="#ffffff"
 
-
-
-
-        <CheckBox
-            android:id="@+id/rememberMe"
-            android:layout_width="wrap_content"
+            />
+        <RadioGroup
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
-            android:buttonTint="#FFFBF8"
-            android:hint="#FFFBF8"
-            android:text="Keep me signed in"
-            android:textColor="#FFFBF8" />
+            android:layout_below="@+id/usertype"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:showDividers="middle|end"
+            android:layout_marginTop="10dp"
+            android:id="@+id/radioGroup" >
+
+
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="patient"
+                android:textColor="#ffffff"
+                android:checked="false" />
+
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="doctor"
+                android:textColor="#ffffff"
+                android:checked="false" />
+
+        </RadioGroup>
 
         <Button
             android:id="@+id/btn"

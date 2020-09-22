@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +28,8 @@ public class DoctorRegister extends AppCompatActivity {
     EditText experience;
     EditText address;
     EditText qualification;
-    EditText gender;
+    RadioGroup radioGroup;
+    RadioButton selectedRadioButton;
     TextView status;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String MobilePattern = "[0-9]{10}";
@@ -46,7 +49,7 @@ public class DoctorRegister extends AppCompatActivity {
         experience = findViewById(R.id.experience);
         address = findViewById(R.id.address);
         qualification = findViewById(R.id.qualification);
-        gender = (EditText) findViewById(R.id.gender);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         status = (TextView) findViewById(R.id.status);
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -57,7 +60,8 @@ public class DoctorRegister extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Doctor doctor = new Doctor(doctor_name.getText().toString(), age.getText().toString(), phoneno.getText().toString(), email.getText().toString(), department.getText().toString(), experience.getText().toString(), address.getText().toString(), qualification.getText().toString(), gender.getText().toString(), "inhold");
+                selectedRadioButton  = (RadioButton)findViewById(radioGroup.getCheckedRadioButtonId());
+                Doctor doctor = new Doctor(doctor_name.getText().toString(), age.getText().toString(), phoneno.getText().toString(), email.getText().toString(), department.getText().toString(), experience.getText().toString(), address.getText().toString(), qualification.getText().toString(), selectedRadioButton.getText().toString(), "inhold");
                 if(doctor_name.getText().toString().isEmpty()){
                     doctor_name.setError("Name can't be empty");
                 }
@@ -90,9 +94,6 @@ public class DoctorRegister extends AppCompatActivity {
                 }
                 else if(qualification.getText().toString().isEmpty()){
                     qualification.setError("qualification can't be empty");
-                }
-                else if(gender.getText().toString().isEmpty()){
-                    gender.setError("gender can't be empty");
                 }
                 else
                     saveDoctor(doctor);

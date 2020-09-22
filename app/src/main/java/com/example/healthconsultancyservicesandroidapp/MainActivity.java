@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     EditText _txtUser, _txtPass, _txtRole;
     Button _btn;
-    CheckBox remember;
+    RadioGroup radioGroup;
+    RadioButton selectedRadioButton;
     TextView _link,_link1;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private HealthConsultancyServicesApi healthConsultancyServicesApi;
@@ -38,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
         _txtUser = (EditText) findViewById(R.id.txtUser);
         _txtPass = (EditText) findViewById(R.id.txtPass);
         _btn = (Button) findViewById(R.id.btn);
-        remember =(CheckBox) findViewById(R.id.rememberMe);
-        _txtRole = (EditText) findViewById(R.id.txtRole);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         _link =(TextView) findViewById(R.id.link);
         _link1 = findViewById(R.id.link1);
 
@@ -65,12 +67,11 @@ public class MainActivity extends AppCompatActivity {
                     _txtUser.setError("Email can't be empty");
                 }else if (!_txtUser.getText().toString().trim().matches(emailPattern)) {
                     _txtUser.setError("Invalid email address");
-                }else if (!_txtPass.getText().toString().isEmpty()){
-                        _txtPass.setError("password can't be empty");}
-                else if (!_txtRole.getText().toString().isEmpty()){
-                    _txtRole.setError("Role can't be empty");}
+                }else if (_txtPass.getText().toString().isEmpty()) {
+                    _txtPass.setError("Password can't be empty");
+                }
                 else
-                {
+                { selectedRadioButton  = (RadioButton)findViewById(radioGroup.getCheckedRadioButtonId());
                 findByEmailAndPasswordAndRole();
             }}
         });
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
         String email = _txtUser.getText ().toString ();
         String password = _txtPass.getText ().toString ();
-        String role = _txtRole.getText ().toString ();
+        String role = selectedRadioButton.getText().toString();
 
         Call<User> call = healthConsultancyServicesApi.findByEmailAndPasswordAndRole(email,password,role);
         call.enqueue(new Callback<User>() {
@@ -94,15 +95,15 @@ public class MainActivity extends AppCompatActivity {
                 User user = response.body ();
                 String email = _txtUser.getText ().toString ();
                 String password = _txtPass.getText ().toString ();
-                String role = _txtRole.getText ().toString ();
+                String role = selectedRadioButton.getText().toString();
                 if (user == null){
                     Toast.makeText (getApplicationContext (), "Please Enter Valid Credentials :" +response.code (), Toast.LENGTH_LONG).show ();
                 }
-                else if(_txtRole.getText().toString().equals("patient")){
+                else if(selectedRadioButton.getText().toString().equals("patient")){
                     Intent intent =new Intent(MainActivity.this, PatientDashboard.class);
                     startActivity(intent);
                 }
-                else if(_txtRole.getText().toString().equals("doctor")) {
+                else if(selectedRadioButton.getText().toString().equals("doctor")) {
                     Intent intent = new Intent(MainActivity.this, DoctorDashboard.class);
                     startActivity(intent);
 

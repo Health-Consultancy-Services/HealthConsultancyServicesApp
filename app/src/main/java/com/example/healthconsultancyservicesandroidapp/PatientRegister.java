@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +22,8 @@ public class PatientRegister extends AppCompatActivity {
     EditText age;
     EditText phoneno;
     EditText email;
-    EditText gender;
+    RadioGroup radioGroup;
+    RadioButton selectedRadioButton;
     Button btn;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String MobilePattern = "[0-9]{10}";
@@ -34,7 +37,7 @@ private  HealthConsultancyServicesApi healthConsultancyServicesApi;
         age=(EditText) findViewById(R.id.age);
         phoneno=(EditText) findViewById(R.id.phone);
         email=(EditText) findViewById(R.id.email);
-        gender=(EditText) findViewById(R.id.gender);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         btn = findViewById(R.id.btn);
 
         Retrofit retrofit = new Retrofit.Builder ()
@@ -45,7 +48,8 @@ private  HealthConsultancyServicesApi healthConsultancyServicesApi;
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Patient patient = new Patient(patient_name.getText().toString(), age.getText().toString(), phoneno.getText().toString(), email.getText().toString(), gender.getText().toString());
+                selectedRadioButton  = (RadioButton)findViewById(radioGroup.getCheckedRadioButtonId());
+                Patient patient = new Patient(patient_name.getText().toString(), age.getText().toString(), phoneno.getText().toString(), email.getText().toString(), selectedRadioButton.getText().toString());
                 if (patient_name.getText().toString().isEmpty()) {
                     patient_name.setError("Name can't be empty");
                 }else if (!patient_name.getText().toString().trim().matches(alphabetPattern)){
@@ -60,9 +64,6 @@ private  HealthConsultancyServicesApi healthConsultancyServicesApi;
                     email.setError("Email can't be empty");
                 }else if (!email.getText().toString().trim().matches(emailPattern)){
                     email.setError("Invalid email address");
-                }else if (gender.getText().toString().isEmpty()) {
-                    gender.setError("Gender can't be empty");
-
                 } else
                     {
                     savePatient(patient);
