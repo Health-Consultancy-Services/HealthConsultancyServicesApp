@@ -5,51 +5,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/midnight"
     android:gravity="center"
     tools:context=".Registration">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#3fff"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="10dp"/>
 
     <ImageView
         android:id="@+id/doc"
-        android:layout_width="197dp"
-        android:layout_height="229dp"
+        android:layout_width="wrap_content"
+        android:layout_height="236dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="214dp"
-        android:layout_marginBottom="502dp"
-        android:src="@drawable/doc"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="214dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="94dp"
+        android:layout_marginLeft="94dp"
+        android:layout_marginTop="102dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginRight="95dp"
+        android:layout_marginBottom="393dp"
+        android:src="@drawable/docreg" />
+
+    <TextView
+        android:textColor="#ffff"
+        android:layout_width="217dp"
+        android:layout_height="44dp"
+        android:layout_centerInParent="true"
+        android:text="Doctor Registration"
+        android:textSize="24dp" />
 
     <ImageView
         android:id="@+id/pg"
-        android:layout_width="222dp"
-        android:layout_height="229dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="442dp"
+        android:layout_marginEnd="89dp"
+        android:layout_marginRight="89dp"
+        android:layout_marginBottom="60dp"
+        android:src="@drawable/pg" />
+
+    <TextView
+        android:textColor="#ffff"
+        android:layout_width="217dp"
+        android:layout_height="44dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="194dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="-5dp"
-        android:layout_marginBottom="502dp"
-        android:src="@drawable/pg"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="194dp"
-        android:layout_marginRight="-5dp" />
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="672dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="60dp"
+        android:text="Patient Registration"
+        android:textSize="24dp" />
 
 </RelativeLayout>

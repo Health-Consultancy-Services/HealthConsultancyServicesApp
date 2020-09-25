@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
         String email = _txtUser.getText ().toString ();
         String password = _txtPass.getText ().toString ();
+
         String role = selectedRadioButton.getText().toString();
 
         Call<User> call = healthConsultancyServicesApi.findByEmailAndPasswordAndRole(email,password,role);
