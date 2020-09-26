@@ -17,7 +17,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ForgetPassword extends AppCompatActivity {
-    EditText _email,_password;
+    EditText _email,_password, _confirmpass;
     Button _btn;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private HealthConsultancyServicesApi healthConsultancyServicesApi;
@@ -26,7 +26,8 @@ public class ForgetPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
         _email = (EditText) findViewById(R.id.email);
-        _password = (EditText) findViewById(R.id.code);
+        _password = (EditText) findViewById(R.id.newpassword);
+        _confirmpass = (EditText) findViewById(R.id.confirmpass);
         _btn = (Button) findViewById(R.id.btn);
         _btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +38,10 @@ public class ForgetPassword extends AppCompatActivity {
                     _email.setError("Invalid email address");
                 }else if (_password.getText().toString().isEmpty()) {
                     _password.setError("Password can't be empty");
+                }else if (_confirmpass.getText().toString().isEmpty()) {
+                    _confirmpass.setError("Confirm Password can't be empty");
+                }else if (!_confirmpass.getText().toString().equals(_password.getText().toString())) {
+                    _confirmpass.setError("Password Dosen't match ");
                 }
                 else
                 {
