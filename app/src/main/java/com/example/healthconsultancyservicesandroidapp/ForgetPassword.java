@@ -58,24 +58,24 @@ public class ForgetPassword extends AppCompatActivity {
         healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
         String email = _email.getText ().toString ();
         String password = _password.getText ().toString ();
-        Call<User> call = healthConsultancyServicesApi.ForgotPassword(email,password);
-        call.enqueue(new Callback<User>() {
+        Call<Integer> call = healthConsultancyServicesApi.ForgotPassword(email,password);
+        call.enqueue(new Callback<Integer>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                User user = response.body ();
+            public void onResponse(Call<Integer> call, Response<Integer> response) {
+                Integer message = response.body ();
                 String email = _email.getText ().toString ();
                 String password = _password.getText ().toString ();
-                if (user.getEmail() == null){
-                    Toast.makeText (getApplicationContext (), "Invalid Email_id :" +response.code (), Toast.LENGTH_LONG).show ();
-                }
-                else{
+                if (message == 1){
                     Intent intent =new Intent(ForgetPassword.this, MainActivity.class);
                     startActivity(intent);
+                }
+                else{
+                    Toast.makeText (getApplicationContext (), "Invalid Email_id :" +response.code (), Toast.LENGTH_LONG).show ();
                 }
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<Integer> call, Throwable t) {
                 Toast.makeText (getApplicationContext (), t.getMessage (), Toast.LENGTH_LONG).show ();
             }
         });
