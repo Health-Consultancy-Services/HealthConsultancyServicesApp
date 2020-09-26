@@ -32,5 +32,9 @@ public class DoctorDashboard extends AppCompatActivity {
         });
 
         }
+        public void sendCall1(View view) {
+            Intent intent = new Intent(this, DoctorProfile.class);
+            startActivity(intent);
+        }
     }
 

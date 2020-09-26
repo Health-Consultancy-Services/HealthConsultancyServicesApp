@@ -15,7 +15,7 @@ public class PatientDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
         logout =findViewById(R.id.logout);
-
+        Intent intent = getIntent ();
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,5 +27,9 @@ public class PatientDashboard extends AppCompatActivity {
             }
         });
 
+    }
+    public void sendCall2(View view) {
+        Intent intent = new Intent(this, PatientProfile.class);
+        startActivity(intent);
     }
 }
