@@ -28,4 +28,7 @@ public interface HealthConsultancyServicesApi {
 
     @GET("/doctorbyemail/{email}")
     Call<Doctor> findDoctorByEmail(@Path("email") String email);
+
+    @GET("/doctorbyemail/{department}")
+    Call<List<Doctor>> findByDepartment(@Path("department") String department);
 }

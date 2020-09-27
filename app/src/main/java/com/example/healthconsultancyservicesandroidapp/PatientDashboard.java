@@ -40,4 +40,10 @@ public class PatientDashboard extends AppCompatActivity {
         intent.putExtra ("homepagePatientEmailId", EmailID);
         startActivity(intent);
     }
+
+    public void sendCall4(View view) {
+        Intent intent = new Intent(this, Department.class);
+        startActivity(intent);
+    }
+
 }
