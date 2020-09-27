@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class DoctorDashboard extends AppCompatActivity {
 
     ImageView logout;
+    TextView emailId;
+    String Email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,10 @@ public class DoctorDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_doctor);
 
         logout =findViewById(R.id.logout);
+        emailId = (TextView) findViewById (R.id.emailIdHide) ;
+        Intent intent = getIntent ();
+        Email =  intent.getStringExtra ("emailId");
+        emailId.setText (Email);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +41,8 @@ public class DoctorDashboard extends AppCompatActivity {
         }
         public void sendCall1(View view) {
             Intent intent = new Intent(this, DoctorProfile.class);
+            String EmailID = emailId.getText ().toString ();
+            intent.putExtra ("homepageDoctorEmailId", EmailID);
             startActivity(intent);
         }
     }

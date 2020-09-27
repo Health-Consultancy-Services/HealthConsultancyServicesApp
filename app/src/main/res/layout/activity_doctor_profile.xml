@@ -23,6 +23,15 @@
             android:gravity="center"
             android:orientation="vertical"
             android:padding="10dp">
+            <TextView
+                android:id="@+id/emailIdHide"
+                android:layout_width="250dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="20dp"
+                android:elevation="5dp"
+                android:visibility = "gone"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -51,7 +60,6 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn"
                 android:elevation="5dp"
-                android:hint="Name"
                 android:inputType="textPersonName"
                 android:paddingLeft="15dp"
                 android:textColorHint="#000000" />
@@ -74,7 +82,6 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/btn"
                 android:elevation="5dp"
-                android:hint="Age"
                 android:inputType="number"
                 android:paddingLeft="15dp"
                 android:textColorHint="#000000" />
@@ -97,7 +104,6 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/btn"
                 android:elevation="5dp"
-                android:hint="Phone-No"
                 android:inputType="number"
                 android:paddingLeft="15dp"
                 android:textColorHint="#000000" />
@@ -120,7 +126,6 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/btn"
                 android:elevation="5dp"
-                android:hint="Email-Id"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="15dp"
                 android:textColorHint="#000000" />
@@ -143,7 +148,6 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/btn"
                 android:elevation="5dp"
-                android:hint="Department"
                 android:inputType="text"
                 android:paddingLeft="15dp"
                 android:textColorHint="#000000" />
@@ -166,7 +170,6 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/btn"
                 android:elevation="5dp"
-                android:hint="Experience"
                 android:inputType="text"
                 android:paddingLeft="15dp"
                 android:textColorHint="#000000" />
@@ -189,7 +192,6 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/btn"
                 android:elevation="5dp"
-                android:hint="Address"
                 android:inputType="text"
                 android:paddingLeft="15dp"
                 android:textColorHint="#000000" />
@@ -212,7 +214,6 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/btn"
                 android:elevation="5dp"
-                android:hint="Qualification"
                 android:inputType="text"
                 android:paddingLeft="15dp"
                 android:textColorHint="#000000" />
@@ -235,7 +236,6 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/btn"
                 android:elevation="5dp"
-                android:hint="Gender"
                 android:inputType="text"
                 android:paddingLeft="15dp"
                 android:textColorHint="#000000" />

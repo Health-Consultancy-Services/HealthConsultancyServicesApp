@@ -1,5 +1,7 @@
 package com.example.healthconsultancyservicesandroidapp;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -20,4 +22,10 @@ public interface HealthConsultancyServicesApi {
 
     @GET("/forgotpassword/{email}/{password}")
     Call<Integer> ForgotPassword(@Path("email") String email,@Path("password") String password);
+
+    @GET("/patientbyemail/{email}")
+    Call<Patient> findByEmail(@Path("email") String email);
+
+    @GET("/doctorbyemail/{email}")
+    Call<Doctor> findDoctorByEmail(@Path("email") String email);
 }

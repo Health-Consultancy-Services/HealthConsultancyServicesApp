@@ -41,7 +41,7 @@ private  HealthConsultancyServicesApi healthConsultancyServicesApi;
         btn = findViewById(R.id.btn);
 
         Retrofit retrofit = new Retrofit.Builder ()
-                .baseUrl ("http://192.168.35.3:8080/")
+                .baseUrl ("http://192.168.35.2:8080/")
                 .addConverterFactory (GsonConverterFactory.create ())
                 .build ();
         healthConsultancyServicesApi = retrofit.create (HealthConsultancyServicesApi.class);
