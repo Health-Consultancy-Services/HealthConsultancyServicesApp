@@ -144,6 +144,7 @@
                 android:layout_below="@+id/gender"
                 android:layout_centerHorizontal="true"
                 android:orientation="horizontal"
+                android:gravity="center"
                 android:showDividers="middle|end"
                 android:layout_marginTop="10dp"
                 android:id="@+id/radioGroup" >

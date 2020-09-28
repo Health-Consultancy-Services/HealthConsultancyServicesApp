@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/doc2"
+    android:background="@color/electricblue"
     tools:context=".DoctorProfile"
     android:fillViewport="true"
     android:scrollbars="none">
@@ -23,15 +23,16 @@
             android:gravity="center"
             android:orientation="vertical"
             android:padding="10dp">
+
             <TextView
                 android:id="@+id/emailIdHide"
                 android:layout_width="250dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
                 android:elevation="5dp"
-                android:visibility = "gone"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -51,18 +52,20 @@
                 android:hint="Name"
                 android:inputType="textPersonName"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="21dp" />
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="250dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/btn1"
                 android:elevation="5dp"
                 android:inputType="textPersonName"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="19dp" />
 
             <TextView
                 android:id="@+id/agedefault"
@@ -73,18 +76,20 @@
                 android:hint="Age"
                 android:inputType="number"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="21dp" />
 
             <TextView
                 android:id="@+id/age"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/btn1"
                 android:elevation="5dp"
                 android:inputType="number"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="19dp" />
 
             <TextView
                 android:id="@+id/phonenodefault"
@@ -95,18 +100,20 @@
                 android:hint="Phone-No"
                 android:inputType="number"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="21dp" />
 
             <TextView
                 android:id="@+id/phoneno"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/btn1"
                 android:elevation="5dp"
                 android:inputType="number"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="19dp" />
 
             <TextView
                 android:id="@+id/emaildefault"
@@ -117,18 +124,20 @@
                 android:hint="Email-Id"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="21dp" />
 
             <TextView
                 android:id="@+id/email"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/btn1"
                 android:elevation="5dp"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="19dp" />
 
             <TextView
                 android:id="@+id/departmentdefault"
@@ -139,18 +148,20 @@
                 android:hint="Department"
                 android:inputType="text"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="21dp" />
 
             <TextView
                 android:id="@+id/department"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/btn1"
                 android:elevation="5dp"
                 android:inputType="text"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="19dp" />
 
             <TextView
                 android:id="@+id/experiencedefault"
@@ -161,18 +172,20 @@
                 android:hint="Experience"
                 android:inputType="text"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="21dp" />
 
             <TextView
                 android:id="@+id/experience"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/btn1"
                 android:elevation="5dp"
                 android:inputType="text"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="19dp" />
 
             <TextView
                 android:id="@+id/addressdefault"
@@ -183,18 +196,20 @@
                 android:hint="Address"
                 android:inputType="text"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="21dp" />
 
             <TextView
                 android:id="@+id/address"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/btn1"
                 android:elevation="5dp"
                 android:inputType="text"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="19dp" />
 
             <TextView
                 android:id="@+id/qualificationdefault"
@@ -205,18 +220,20 @@
                 android:hint="Qualification"
                 android:inputType="text"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="21dp" />
 
             <TextView
                 android:id="@+id/qualification"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/btn1"
                 android:elevation="5dp"
                 android:inputType="text"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="19dp" />
 
             <TextView
                 android:id="@+id/genderdefault"
@@ -227,40 +244,51 @@
                 android:hint="Gender"
                 android:inputType="text"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="21dp" />
 
             <TextView
                 android:id="@+id/gender"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/btn"
+                android:background="@drawable/btn1"
                 android:elevation="5dp"
                 android:inputType="text"
                 android:paddingLeft="15dp"
-                android:textColorHint="#000000" />
+                android:textColorHint="#000000"
+                android:textSize="19dp" />
 
-            <Button
-                android:id="@+id/btnedit"
-                android:layout_width="250dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/btncolor"
-                android:elevation="5dp"
-                android:text="Edit"
-                android:textAllCaps="false"
-                android:textColor="#FFFBF8" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gender"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:showDividers="middle|end">
 
-            <Button
-                android:id="@+id/btnback"
-                android:layout_width="250dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/btncolor"
-                android:elevation="5dp"
-                android:text="Back"
-                android:textAllCaps="false"
-                android:textColor="#FFFBF8" />
+                <Button
+                    android:id="@+id/btnedit"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/btncolor1"
+                    android:elevation="5dp"
+                    android:text="Edit"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+
+                <Button
+                    android:id="@+id/btnback"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="80dp"
+                    android:background="@drawable/btncolor1"
+                    android:elevation="5dp"
+                    android:text="Back"
+                    android:textAllCaps="false"
+                    android:textColor="#000000" />
+            </LinearLayout>
 
 
         </LinearLayout>

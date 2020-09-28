@@ -48,7 +48,7 @@ public class DoctorProfile extends AppCompatActivity {
     }
     private void findDoctorByEmail() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.35.2:8080/")
+                .baseUrl("http://192.168.35.5:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);

@@ -43,7 +43,7 @@ public class PatientProfile extends AppCompatActivity {
 
     private void findByEmail() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.35.2:8080/")
+                .baseUrl("http://192.168.35.5:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
