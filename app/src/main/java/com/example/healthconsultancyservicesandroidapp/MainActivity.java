@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void findByEmailAndPasswordAndRole() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.43.205:8080/")
+                .baseUrl("http://172.20.10.3:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);

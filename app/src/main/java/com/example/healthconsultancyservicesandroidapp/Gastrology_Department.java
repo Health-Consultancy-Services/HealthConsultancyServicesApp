@@ -28,7 +28,7 @@ public class Gastrology_Department extends AppCompatActivity {
 
     private void getEodReport() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.43.2:8080/")
+                .baseUrl("http://172.20.10.3:8080/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
@@ -42,10 +42,8 @@ public class Gastrology_Department extends AppCompatActivity {
                     return;
                 }
                 List<Doctor> d = response.body();
-
-
                 for(Doctor depart: d){
-                    department.setText(depart.getDoctor_name()+"/n");
+                    department.append(depart.getDoctor_name()+ "\n");
                 }
 
             }

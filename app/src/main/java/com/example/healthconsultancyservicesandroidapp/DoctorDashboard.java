@@ -39,11 +39,11 @@ public class DoctorDashboard extends AppCompatActivity {
         });
 
         }
-        public void sendCall1(View view) {
-            Intent intent = new Intent(this, DoctorProfile.class);
-            String EmailID = emailId.getText ().toString ();
-            intent.putExtra ("homepageDoctorEmailId", EmailID);
-            startActivity(intent);
-        }
+       public void sendCall1(View view) {
+        Intent intent = new Intent(this, DoctorProfile.class);
+        String EmailID = emailId.getText ().toString ();
+        intent.putExtra ("homepageDoctorEmailId", EmailID);
+        startActivity(intent);
+    }
     }
 

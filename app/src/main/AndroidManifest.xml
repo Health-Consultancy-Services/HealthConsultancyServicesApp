@@ -15,6 +15,13 @@
         <activity android:name=".PatientProfile"></activity>
         <activity android:name=".DoctorProfile" />
         <activity android:name=".PaitentLoginCred" />
+        <activity android:name=".Department" />
+        <activity android:name=".Cardiologist_Department" />
+        <activity android:name=".ENTspecialist_Department" />
+        <activity android:name=".Eyespecialist_Department" />
+        <activity android:name=".Gastrology_Department" />
+        <activity android:name=".Gynecologist_Department" />
+        <activity android:name=".Dentist_Department" />
         <activity android:name=".DrLoginCred" />
         <activity android:name=".PatientRegister" />
         <activity android:name=".DoctorRegister" />
