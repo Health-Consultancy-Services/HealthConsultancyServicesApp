@@ -1,4 +1,4 @@
-package com.example.healthconsultancyservicesandroidapp;
+package com.app.healthconsultancyservicesandroidapp;
 
 public class Patient {
     private int patient_id;
