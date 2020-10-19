@@ -17,6 +17,9 @@ public interface HealthConsultancyServicesApi {
     @POST("user")
     Call<User> saveUser(@Body User user);
 
+    @POST("appointment")
+    Call<Appointment> saveAppointment(@Body Appointment appointment);
+
     @GET("login/{email}/{password}/{role}")
     Call<User> findByEmailAndPasswordAndRole(@Path("email") String email,@Path("password") String password,@Path("role") String role);
 
@@ -31,4 +34,5 @@ public interface HealthConsultancyServicesApi {
 
     @GET("/doctorbydepartment/{department}")
     Call<List<Doctor>> findByDepartment(@Path("department") String department);
+
 }
