@@ -20,6 +20,9 @@ public interface HealthConsultancyServicesApi {
     @POST("appointment")
     Call<Appointment> saveAppointment(@Body Appointment appointment);
 
+    @GET("/appointmentbydoctorname/{doctorname}")
+    Call<List<Appointment>> findByDoctorname(@Path("doctorname") String doctorname);
+
     @GET("login/{email}/{password}/{role}")
     Call<User> findByEmailAndPasswordAndRole(@Path("email") String email,@Path("password") String password,@Path("role") String role);
 
