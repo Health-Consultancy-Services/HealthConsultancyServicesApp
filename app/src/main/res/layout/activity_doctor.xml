@@ -33,6 +33,13 @@
                 android:visibility = "gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/nameHide"
+                android:textSize="21dp"
+                android:textColor="#FFFFFF"
+                android:visibility = "gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
             <ImageView
                 android:id="@+id/logout"
                 android:layout_alignParentRight="true"
@@ -44,139 +51,144 @@
         </RelativeLayout>
 
         <GridLayout
-            android:columnCount="2"
-            android:rowCount="3"
-            android:alignmentMode="alignMargins"
-            android:columnOrderPreserved="false"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:rowCount="3">
 
             <androidx.cardview.widget.CardView
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
+                android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
+                android:layout_columnWeight="1"
                 android:layout_margin="12dp"
-                >
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp"
-                    android:onClick="sendCall1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:onClick="sendCall1"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
-                        android:src="@drawable/user"
                         android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        android:src="@drawable/user" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="user profile"
-                        android:textSize="18dp"
-                        android:textColor="#6f6f6f"/>
+                        android:textColor="#6f6f6f"
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
+                android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
+                android:layout_columnWeight="1"
                 android:layout_margin="12dp"
-                >
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:onClick="sendCall6"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
-                        android:src="@drawable/pl"
                         android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        android:src="@drawable/pl" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="patient list"
-                        android:textSize="18dp"
-                        android:textColor="#6f6fff"/>
+                        android:textColor="#6f6fff"
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
+                android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
+                android:layout_columnWeight="1"
                 android:layout_margin="12dp"
-                >
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:onClick="sendCall5"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    tools:ignore="OnClick">
 
                     <ImageView
-                        android:src="@drawable/appoi"
                         android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        android:src="@drawable/appoi" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="appointments"
-                        android:textSize="18dp"
-                        android:textColor="#6f6f6f"/>
+                        android:textColor="#6f6f6f"
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
-                android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_columnWeight="1"
+                android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
+                android:layout_columnWeight="1"
                 android:layout_margin="12dp"
-                >
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp">
+
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="16dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <ImageView
-                        android:src="@drawable/ps"
                         android:layout_width="80dp"
-                        android:layout_height="80dp"/>
+                        android:layout_height="80dp"
+                        android:src="@drawable/ps" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="prescription"
-                        android:textSize="18dp"
-                        android:textColor="#6f6f6f"/>
+                        android:textColor="#6f6f6f"
+                        android:textSize="18dp" />
 
                 </LinearLayout>
 

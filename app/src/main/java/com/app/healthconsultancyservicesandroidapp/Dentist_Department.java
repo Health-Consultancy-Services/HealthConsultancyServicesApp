@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,11 +36,7 @@ public class Dentist_Department extends AppCompatActivity {
         getEodReport ();
     }
     private void getEodReport() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.20.10.3:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
+        healthConsultancyServicesApi = healthConsultancyServicesApi.retrofit.create(HealthConsultancyServicesApi.class);
         final String depart = departmentname.getText().toString();
         Call<List<Doctor>> call = healthConsultancyServicesApi.findByDepartment(depart);
         call.enqueue(new Callback<List<Doctor>>() {
@@ -57,5 +55,9 @@ public class Dentist_Department extends AppCompatActivity {
             }
         });
 
+    }
+    public void appointment(View view){
+        Intent intent = new Intent(this,BookAppointment.class);
+        startActivity(intent);
     }
 }

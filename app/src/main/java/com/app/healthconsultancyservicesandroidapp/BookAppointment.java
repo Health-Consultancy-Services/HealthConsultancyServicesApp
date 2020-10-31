@@ -41,11 +41,8 @@ public class BookAppointment extends AppCompatActivity {
         status = findViewById(R.id.status);
         button = findViewById(R.id.btn);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.100:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
+
+        healthConsultancyServicesApi = healthConsultancyServicesApi.retrofit.create(HealthConsultancyServicesApi.class);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

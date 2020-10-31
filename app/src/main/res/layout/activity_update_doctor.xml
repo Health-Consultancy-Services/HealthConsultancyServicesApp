@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/electricblue"
-    tools:context=".DoctorProfile"
+    tools:context=".update_doctor"
     android:fillViewport="true"
     android:scrollbars="none">
 
@@ -35,11 +35,22 @@
                 android:visibility="gone" />
 
             <TextView
+                android:id="@+id/doctor_id"
+                android:layout_width="250dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="20dp"
+                android:elevation="5dp"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000"
+                android:visibility="gone" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/circle"
                 android:gravity="center"
-                android:text="Doctor's Profile"
+                android:text="Doctor's Profile Update"
                 android:textColor="#000000"
                 android:textSize="17dp" />
 
@@ -103,7 +114,7 @@
                 android:textColorHint="#000000"
                 android:textSize="21dp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/phoneno"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
@@ -199,7 +210,7 @@
                 android:textColorHint="#000000"
                 android:textSize="21dp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/address"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
@@ -259,6 +270,18 @@
                 android:textColorHint="#000000"
                 android:textSize="19dp" />
 
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:elevation="5dp"
+                android:visibility="gone"
+                android:inputType="text"
+                android:paddingLeft="15dp"
+                android:textColorHint="#000000"
+                android:textSize="21dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -269,24 +292,23 @@
                 android:showDividers="middle|end">
 
                 <Button
-                    android:id="@+id/btnedit"
+                    android:id="@+id/btnhome"
                     android:layout_width="120dp"
                     android:layout_height="40dp"
                     android:background="@drawable/btncolor1"
                     android:elevation="5dp"
-                    android:text="Edit"
-                    android:onClick="Doctoredit"
+                    android:text="Home"
                     android:textAllCaps="false"
                     android:textColor="#000000" />
 
                 <Button
-                    android:id="@+id/btnback"
+                    android:id="@+id/btnsubmit"
                     android:layout_width="120dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="80dp"
                     android:background="@drawable/btncolor1"
                     android:elevation="5dp"
-                    android:text="Back"
+                    android:text="Submit"
                     android:textAllCaps="false"
                     android:textColor="#000000" />
             </LinearLayout>

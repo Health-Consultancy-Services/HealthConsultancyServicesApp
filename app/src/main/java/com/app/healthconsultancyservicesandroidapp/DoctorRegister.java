@@ -52,11 +52,8 @@ public class DoctorRegister extends AppCompatActivity {
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         status = (TextView) findViewById(R.id.status);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.20.10.3:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
+
+        healthConsultancyServicesApi = healthConsultancyServicesApi.retrofit.create(HealthConsultancyServicesApi.class);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

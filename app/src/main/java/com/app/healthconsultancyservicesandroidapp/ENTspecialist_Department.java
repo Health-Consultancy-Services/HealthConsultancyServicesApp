@@ -36,11 +36,7 @@ public class ENTspecialist_Department extends AppCompatActivity {
         getEodReport ();
     }
     private void getEodReport() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.100:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
+        healthConsultancyServicesApi = healthConsultancyServicesApi.retrofit.create(HealthConsultancyServicesApi.class);
         final String depart = departmentname.getText().toString();
         Call<List<Doctor>> call = healthConsultancyServicesApi.findByDepartment(depart);
         call.enqueue(new Callback<List<Doctor>>() {

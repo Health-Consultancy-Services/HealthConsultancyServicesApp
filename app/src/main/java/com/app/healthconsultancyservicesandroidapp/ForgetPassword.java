@@ -51,11 +51,7 @@ public class ForgetPassword extends AppCompatActivity {
     }
 
     private void ForgetPassword(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.20.10.3:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
+        healthConsultancyServicesApi = healthConsultancyServicesApi.retrofit.create(HealthConsultancyServicesApi.class);
         String email = _email.getText ().toString ();
         String password = _password.getText ().toString ();
         Call<Integer> call = healthConsultancyServicesApi.ForgotPassword(email,password);

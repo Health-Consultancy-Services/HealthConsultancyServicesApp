@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/midnight"
+    android:layout_height="match_parent"
+    tools:context=".ViewAppointment">
+    <TextView
+        android:id="@+id/doctorname"
+        android:layout_width="108dp"
+        android:layout_height="39dp"
+        tools:ignore="MissingConstraints"
+        android:visibility = "gone"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="87dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/appointment_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,7 @@ public class PatientProfile extends AppCompatActivity {
     TextView email_id;
     TextView emailid;
     TextView gender;
+    Button back;
     private HealthConsultancyServicesApi healthConsultancyServicesApi;
 
     @Override
@@ -34,19 +37,25 @@ public class PatientProfile extends AppCompatActivity {
         age = (TextView) findViewById (R.id.age) ;
         phone = (TextView) findViewById (R.id.phone) ;
         gender = (TextView) findViewById (R.id.gender) ;
+        back = (Button) findViewById(R.id.btnback);
 
         Intent intent = getIntent ();
         final String EmailID = intent.getStringExtra ("homepagePatientEmailId");
         emailid.setText (EmailID);
         findByEmail();
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String email = emailid.getText ().toString ();
+                Intent intent =new Intent(PatientProfile.this,PatientDashboard.class);
+                intent.putExtra("emailId", email);
+                startActivity(intent);
+            }
+        });
     }
 
     private void findByEmail() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.20.10.3:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
+        healthConsultancyServicesApi = healthConsultancyServicesApi.retrofit.create(HealthConsultancyServicesApi.class);
         Intent intent = getIntent ();
         final String email = emailid.getText().toString();
         Call<Patient> call = healthConsultancyServicesApi.findByEmail(email);
@@ -58,7 +67,7 @@ public class PatientProfile extends AppCompatActivity {
                             return;
                         }
                         Patient patient = response.body();
-                        name.setText(patient.getPatient_name());
+                        name.setText(patient.getPatientname());
                         age.setText(patient.getAge());
                         phone.setText(patient.getPhoneno());
                         email_id.setText(patient.getEmail());
@@ -72,4 +81,10 @@ public class PatientProfile extends AppCompatActivity {
                 });
 
      }
+    public void patientedit(View view) {
+        Intent intent = new Intent(this, update_patient.class);
+        String EmailID = emailid.getText ().toString ();
+        intent.putExtra ("PatientEmailId", EmailID);
+        startActivity(intent);
+    }
 }

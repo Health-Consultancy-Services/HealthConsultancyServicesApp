@@ -1,8 +1,8 @@
 package com.app.healthconsultancyservicesandroidapp;
 
 public class Patient {
-    private int patient_id;
-    private String patient_name;
+    private String patient_id;
+    private String patientname;
     private String age;
     private String phoneno;
     private String email;
@@ -11,26 +11,35 @@ public class Patient {
     public Patient(){
     }
 
-    public Patient(String patient_name, String age, String phoneno, String email, String gender) {
+    public Patient(String patientname, String age, String phoneno, String email, String gender) {
         this.patient_id = patient_id;
-        this.patient_name = patient_name;
+        this.patientname = patientname;
         this.age = age;
         this.phoneno = phoneno;
         this.email = email;
         this.gender = gender;
     }
 
-    public int getPatient_id() {
+    public Patient(String patient_id,String patientname, String age, String phoneno, String email, String gender) {
+        this.patient_id = patient_id;
+        this.patientname = patientname;
+        this.age = age;
+        this.phoneno = phoneno;
+        this.email = email;
+        this.gender = gender;
+    }
+
+    public String getPatient_id() {
         return patient_id;
     }
-    public void setPatient_id(int patient_id) {
+    public void setPatient_id(String patient_id) {
         this.patient_id = patient_id;
     }
-    public String getPatient_name() {
-        return patient_name;
+    public String getPatientname() {
+        return patientname;
     }
-    public void setPatient_name(String patient_name) {
-        this.patient_name = patient_name;
+    public void setPatientname(String patientname) {
+        this.patientname = patientname;
     }
     public String getAge() {
         return age;

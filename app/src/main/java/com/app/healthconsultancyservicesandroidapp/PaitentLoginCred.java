@@ -34,11 +34,7 @@ public class PaitentLoginCred extends AppCompatActivity {
         password = (EditText) findViewById(R.id.newpassword);
         confirm =findViewById(R.id.confirmpass);
         role = (TextView) findViewById(R.id.role);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.20.10.3:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
+        healthConsultancyServicesApi = healthConsultancyServicesApi.retrofit.create(HealthConsultancyServicesApi.class);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

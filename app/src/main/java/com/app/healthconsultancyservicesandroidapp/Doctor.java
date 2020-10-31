@@ -1,7 +1,7 @@
 package com.app.healthconsultancyservicesandroidapp;
 public class Doctor {
-    private int doctor_id;
-    private String doctor_name;
+    private String doctor_id;
+    private String doctorname;
     private String age;
     private String phoneno;
     private String email;
@@ -12,11 +12,9 @@ public class Doctor {
     private String gender;
     private String status;
 
-    public Doctor(){}
-
-    public Doctor(String doctor_name, String age, String phoneno, String email, String department, String experience, String address, String qualification, String gender, String status) {
+    public Doctor(String doctor_id, String doctorname, String age, String phoneno, String email, String department, String experience, String address, String qualification, String gender, String status) {
         this.doctor_id = doctor_id;
-        this.doctor_name = doctor_name;
+        this.doctorname = doctorname;
         this.age = age;
         this.phoneno = phoneno;
         this.email = email;
@@ -28,17 +26,32 @@ public class Doctor {
         this.status = status;
     }
 
-    public int getDoctor_id() {
+    public Doctor(String doctorname, String age, String phoneno, String email, String department, String experience, String address, String qualification, String gender, String status) {
+        this.doctor_id = doctor_id;
+        this.doctorname = doctorname;
+        this.age = age;
+        this.phoneno = phoneno;
+        this.email = email;
+        this.department = department;
+        this.experience = experience;
+        this.address = address;
+        this.qualification = qualification;
+        this.gender = gender;
+        this.status = status;
+    }
+
+
+    public String getDoctor_id() {
         return doctor_id;
     }
-    public void setDoctor_id(int doctor_id) {
+    public void setDoctor_id(String doctor_id) {
         this.doctor_id = doctor_id;
     }
-    public String getDoctor_name() {
-        return doctor_name;
+    public String getDoctorname() {
+        return doctorname;
     }
-    public void setDoctor_name(String doctor_name) {
-        this.doctor_name = doctor_name;
+    public void setDoctor_name(String doctorname) {
+        this.doctorname = doctorname;
     }
     public String getAge() {
         return age;

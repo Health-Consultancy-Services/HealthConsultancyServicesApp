@@ -79,11 +79,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void findByEmailAndPasswordAndRole() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://172.20.10.3:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        healthConsultancyServicesApi = retrofit.create(HealthConsultancyServicesApi.class);
+        healthConsultancyServicesApi = healthConsultancyServicesApi.retrofit.create(HealthConsultancyServicesApi.class);
         String email = emailId.getText ().toString ();
         String password = _txtPass.getText ().toString ();
 
@@ -98,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 String password = _txtPass.getText ().toString ();
                 String role = selectedRadioButton.getText().toString();
                 if (user == null){
-                    Toast.makeText (getApplicationContext (), "Please Enter Valid Credentials :" +response.code (), Toast.LENGTH_LONG).show ();
+                    Toast.makeText (getApplicationContext (), "Please Enter Valid Credentials :" , Toast.LENGTH_LONG).show ();
                 }
                 else if(selectedRadioButton.getText().toString().equals("patient")){
                     Intent intent =new Intent(MainActivity.this, PatientDashboard.class);
@@ -116,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText (getApplicationContext (), t.getMessage (), Toast.LENGTH_LONG).show ();
+                Toast.makeText (getApplicationContext (),"Please Enter Valid Credentials !!", Toast.LENGTH_LONG).show ();
             }
         });
     }

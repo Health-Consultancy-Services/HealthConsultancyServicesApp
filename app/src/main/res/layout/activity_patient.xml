@@ -27,6 +27,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
             <TextView
+                android:id="@+id/nameHide"
+                android:textSize="21dp"
+                android:textColor="#FFFFFF"
+                android:visibility = "gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <TextView
                 android:textSize="24dp"
                 android:textColor="#FFFFFF"
                 android:text="Patient Dashboard"
@@ -131,8 +138,10 @@
                     android:orientation="vertical"
                     android:gravity="center"
                     android:padding="16dp"
+                    android:onClick="sendCall7"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    tools:ignore="OnClick">
 
                     <ImageView
                         android:src="@drawable/appoi"

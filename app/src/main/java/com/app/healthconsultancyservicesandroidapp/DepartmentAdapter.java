@@ -28,7 +28,7 @@ public class  DepartmentAdapter extends RecyclerView.Adapter<DepartmentAdapter.V
     }
     @Override
     public void onBindViewHolder(@NonNull DepartmentAdapter.ViewHolder viewHolder, int i){
-        viewHolder.doctor_name.setText(doctors.get(i).getDoctor_name());
+        viewHolder.doctor_name.setText("Dr. "+doctors.get(i).getDoctorname());
         viewHolder.department.setText(doctors.get(i).getDepartment());
     }
     @Override
