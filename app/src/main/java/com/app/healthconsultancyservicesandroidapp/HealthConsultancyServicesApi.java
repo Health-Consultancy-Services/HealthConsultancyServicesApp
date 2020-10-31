@@ -38,4 +38,11 @@ public interface HealthConsultancyServicesApi {
     @GET("/doctorbydepartment/{department}")
     Call<List<Doctor>> findByDepartment(@Path("department") String department);
 
+    @GET("/acceptappointment/{patientname}")
+    Call<Appointment> AcceptAppointment(@Path("patientname") String patientname);
+
+    @GET("/declineappointment/{patientname}")
+    Call<Appointment> DeclineAppointment(@Path("patientname") String patientname);
+
+
 }
