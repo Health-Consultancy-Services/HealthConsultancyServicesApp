@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ViewAppointment"></activity>
+        <activity android:name=".update_patient"></activity>
+        <activity android:name=".update_doctor" />
+        <activity android:name=".ViewAppointment" />
         <activity android:name=".BookAppointment" />
         <activity android:name=".PatientProfile" />
         <activity android:name=".DoctorProfile" />

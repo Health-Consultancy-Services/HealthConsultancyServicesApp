@@ -6,6 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 import retrofit2.http.GET;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 public interface HealthConsultancyServicesApi {
     @POST("patient")
@@ -19,6 +20,12 @@ public interface HealthConsultancyServicesApi {
 
     @POST("appointment")
     Call<Appointment> saveAppointment(@Body Appointment appointment);
+
+    @PUT("doctor")
+    Call<Doctor> update(@Body Doctor doctor);
+
+    @PUT("patient")
+    Call<Patient> updatePatient(@Body Patient patient);
 
     @GET("/appointmentbydoctorname/{doctorname}")
     Call<List<Appointment>> findByDoctorname(@Path("doctorname") String doctorname);
