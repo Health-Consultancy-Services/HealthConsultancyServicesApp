@@ -41,6 +41,10 @@ public interface HealthConsultancyServicesApi {
     @GET("/forgotpassword/{email}/{password}")
     Call<Integer> ForgotPassword(@Path("email") String email,@Path("password") String password);
 
+
+    @GET("/changepassword/{email}/{password}/{newpassword}")
+    Call<Integer> ChangePassword(@Path("email") String email,@Path("password") String password,@Path("newpassword") String newpassword);
+
     @GET("/patientbyemail/{email}")
     Call<Patient> findByEmail(@Path("email") String email);
 
